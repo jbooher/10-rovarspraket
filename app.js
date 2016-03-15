@@ -6,7 +6,12 @@
  */
 
 export function max(a, b){
-    // YOUR CODE HERE
+  if (a > b) {
+    return a;
+  }
+  else {
+    return b;
+  }
 }
 
 /**
@@ -17,7 +22,15 @@ export function max(a, b){
  */
 
 export function maxOfThree(a, b, c){
-    // YOUR CODE HERE
+  if (a > b && a > c) {
+    return a;
+  }
+  else if (b > a && b > c) {
+    return b;
+  }
+  else {
+    return c;
+  }
 }
 
 /**
@@ -28,7 +41,14 @@ export function maxOfThree(a, b, c){
  */
 
 export function isVowel(char){
-    // YOUR CODE HERE
+  var vowels = ["a", "A", "e", "E", "i", "I", "o", "O", "u", "U"];
+
+  if (vowels.indexOf(char) > -1) {
+    return true;
+  }
+  else {
+    return false;
+  }
 }
 
 /**
@@ -44,7 +64,21 @@ export function isVowel(char){
  */
 
 export function rovarspraket(input) {
-    // YOUR CODE HERE
+  // var newInput = input.split("");
+  var newInput = "";
+
+  if (!isNaN(input)){
+    return String(input);
+  }
+
+  for (var i = 0; i < input.length; i++) {
+    newInput += input[i];
+    if (!(isVowel(input[i]))) {
+      newInput += "o" + input[i];
+    }
+  }
+
+  return newInput;
 }
 
 /**
@@ -57,7 +91,11 @@ export function rovarspraket(input) {
  */
 
 export function reverse(str){
-    // YOUR CODE HERE
+  var newString = "";
+  for (var i = str.length - 1; i > -1; i--) {
+      newString += str[i];
+  }
+  return newString;
 }
 
 /**
@@ -70,7 +108,24 @@ export function reverse(str){
  */
 
 export function findLongestWord(sentence){
-    // YOUR CODE HERE
+  var counter = "";
+  var longest = "";
+  //count word
+  for (var i = 0; i < sentence.length; i++) {
+    if (sentence[i] !== " " && sentence[i] !== "\'") {
+      counter += sentence[i];
+    }
+
+    if (counter.length > longest.length) {
+        longest = counter;
+    }
+
+    if (sentence[i] === " "){
+      counter = "";
+    }
+  }
+
+  return longest;
 }
 
 /**
@@ -82,5 +137,39 @@ export function findLongestWord(sentence){
  */
 
  export function isPalindrome(word) {
-   // YOUR CODE HERE
+  if (!isNaN(word)) {
+    return false;
+  }
+  else {
+    var palli = reverse(word);
+  }
+
+  if (palli === word) {
+    return true;
+  }
+  else {
+    return false;
+  }
  }
+
+export function min (a, b) {
+  //Not really that necessary.  Good precaution.
+  if (isNaN(a) && isNaN(b)) {
+    return NaN;
+  }
+
+  if (isNaN(a)) {
+    return b;
+  }
+
+  if (isNaN(b)) {
+    return a;
+  }
+
+  if (a > b) {
+    return b;
+  }
+  else {
+    return a;
+  }
+}

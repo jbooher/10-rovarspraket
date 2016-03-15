@@ -116,3 +116,27 @@ describe('isPalindrome Function', () => {
 	});
 
 });
+
+describe('Min Function', () => {
+
+	it('Should pick the smallest when comparing numbers', (done) => {
+
+    expect(app.min(1, 3)).to.equal(1);
+    expect(app.min(0, 3)).to.equal(0);
+    expect(app.min(10, 3)).to.equal(3);
+    expect(app.min(-1, -3)).to.equal(-3);
+
+		done();
+	});
+
+  it('Should pick the number when presented with a number and a string', (done) => {
+    expect(app.min('aaa', 0)).to.equal(0);
+    done();
+  });
+
+  it('Should return NaN if provided with two things that aren\'t numbers', (done) => {
+    expect(isNaN(app.min('aaa', 'bbb')));
+    done();
+  });
+
+});
