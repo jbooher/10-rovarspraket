@@ -169,6 +169,8 @@ describe('Duplicate Letters', () => {
 	it('Turns string that alternates letters and numbers into new string that duplicates the given letters by the number after them.', (done) => {
 		expect(app.duplicateLetters("A1B1C1")).to.equal("ABC");
 		expect(app.duplicateLetters("A2B1C2")).to.equal("AABCC");
+		expect(app.duplicateLetters("A5B2C3D1E9")).to.equal("AAAAABBCCCDEEEEEEEEE");
+
 
 		done();
 	});
