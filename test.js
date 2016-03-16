@@ -140,3 +140,37 @@ describe('Min Function', () => {
   });
 
 });
+
+describe('Find Most Vowels', () => {
+
+	it('Find the first word with the most vowels in a string.', (done) => {
+		expect(app.findMostVowels("there are vowels here")).to.equal("there");
+		expect(app.findMostVowels("not many vowels here")).to.equal("vowels");
+		expect(app.findMostVowels("look it's a banana")).to.equal("banana");
+
+		done();
+	});
+
+});
+
+describe('Flat Zip.', () => {
+
+	it('One array with alternating values from two arrays.', (done) => {
+		expect(app.flatZip([1, 2, 3], [3, 2, 1])).to.deep.equal([1, 3, 2, 2, 3, 1]);
+
+		done();
+	});
+
+});
+
+
+describe('Duplicate Letters', () => {
+
+	it('Turns string that alternates letters and numbers into new string that duplicates the given letters by the number after them.', (done) => {
+		expect(app.duplicateLetters("A1B1C1")).to.equal("ABC");
+		expect(app.duplicateLetters("A2B1C2")).to.equal("AABCC");
+
+		done();
+	});
+
+});

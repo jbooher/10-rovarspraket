@@ -173,3 +173,74 @@ export function min (a, b) {
     return a;
   }
 }
+
+export function findMostVowels (str) {
+  var word = "";
+  var mostVowels = "";
+  var count = 0;
+  var mostCount = 0;
+  function vowelCounter () {
+    for (var j = 0; j < word.length; j++) {
+      if (isVowel(word[j])) {
+        count += 1;
+      }
+    }
+
+    if (count > mostCount) {
+      mostCount = count;
+      mostVowels = word;
+    }
+    word = "";
+    count = 0;
+  }
+
+  for (var i = 0; i < str.length; i++) {
+    if (str[i] === " ") {
+      vowelCounter();
+    }
+    else {
+      word += str[i];
+    }
+  }
+
+  vowelCounter();
+
+  return mostVowels;
+}
+
+export function flatZip (array1, array2) {
+  var newArray = [];
+
+  for (var i = 0; i < array1.length; i++) {
+    newArray.push(array1[i]);
+    newArray.push(array2[i]);
+  }
+
+  return newArray;
+}
+
+export function duplicateLetters (str) {
+var arrayLet = [];
+var arrayNum = [];
+var count = 0;
+
+  for (var i = 0; i < str.length; i += 2) {
+    arrayLet.push(str[i]);
+    arrayNum.push(str[i + 1]);
+  }
+
+  for (var j = 0; j < arrayNum.length; j++) {
+    while (count < Number(arrayNum[j])) {
+      arrayLet.splice(j + 1, 0, arrayLet[j]);
+      count++;
+    }
+    count = 0;
+  }
+
+  //insert index 0 index 0 times after index 0
+
+
+
+  arrayLet = arrayLet.join("");
+  return arrayLet;
+}
