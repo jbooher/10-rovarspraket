@@ -220,9 +220,10 @@ export function flatZip (array1, array2) {
 }
 
 export function duplicateLetters (str) {
-var arrayLet = [];
-var arrayNum = [];
-var count = 0;
+  var arrayLet = [];
+  var arrayNum = [];
+  var fullArray = [];
+  var count = 0;
 
   for (var i = 0; i < str.length; i += 2) {
     arrayLet.push(str[i]);
@@ -231,16 +232,13 @@ var count = 0;
 
   for (var j = 0; j < arrayNum.length; j++) {
     while (count < Number(arrayNum[j])) {
-      arrayLet.splice(j + 1, 0, arrayLet[j]);
-      count++;
+      fullArray.push(arrayLet[j]);
+      count += 1;
     }
     count = 0;
   }
 
-  //insert index 0 index 0 times after index 0
+  fullArray = fullArray.join("");
 
-
-
-  arrayLet = arrayLet.join("");
-  return arrayLet;
+  return fullArray;
 }
